@@ -1,16 +1,16 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "KintoSans";
+  font-display: swap;
+  font-weight: 400;
+  src: url("/fonts/KintoSans-Regular.woff2") format("woff2");
 }
-
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: "KintoSans";
+  font-display: swap;
+  font-weight: 700;
+  src: url("/fonts/KintoSans-Bold.woff2") format("woff2");
 }
