@@ -2,7 +2,7 @@
 
 ```bash
 # clone repository
- git clone git@github.com:minoru-noto/next-product.git
+$ git clone git@github.com:minoru-noto/next-product.git
 
 # install dependencies
 $ yarn install
@@ -34,3 +34,19 @@ $ yarn generate
 
 - Package manager
   -Yarn
+
+## .env.local ファイル
+
+```
+# Firebase
+NEXT_PUBLIC_FB_API_KEY=
+NEXT_PUBLIC_FB_AUTH_DOMAIN=
+NEXT_PUBLIC_FB_PROJECT_ID=
+NEXT_PUBLIC_FB_STORAGE_BUCKET=
+NEXT_PUBLIC_FB_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FB_APP_ID=
+NEXT_PUBLIC_FB_MEASUREMENT_ID=
+# Firebase Admin
+FB_ADMIN_PRIVATE_KEY=
+FB_ADMIN_CLIENT_EMAIL=
+```
