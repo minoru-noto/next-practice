@@ -1,8 +1,21 @@
 環境の初期設定
 
 ```bash
+# clone repository
  git clone git@github.com:minoru-noto/next-product.git
- yarn install
+
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn dev
+
+# build for production and launch server
+$ yarn build
+$ yarn start
+
+# generate static project
+$ yarn generate
 ```
 
 ## ライブラリ概要
@@ -17,7 +30,7 @@
 
 - [nookies v2.5.2](https://www.npmjs.com/package/nookies)
 
-### パッケージ
+## パッケージ
 
 - Package manager
   -Yarn
