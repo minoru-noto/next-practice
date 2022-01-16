@@ -33,7 +33,7 @@ $ yarn generate
 ## パッケージ
 
 - Package manager
-  -Yarn
+  - Yarn
 
 ## .env.local ファイル
 
