@@ -35,3 +35,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# json file
+next-dev-338608-f6cc7664f8ed.json
