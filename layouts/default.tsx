@@ -4,7 +4,8 @@ import { Sidebar } from "../src/components/Sidebar";
 
 const DefaultLayout: NextPage<Props> = ({ children }: Props) => {
   return (
-    <div>
+    <div className="h-screen flex bg-background2">
+      <Sidebar />
       <div>{children}</div>
     </div>
   );

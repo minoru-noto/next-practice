@@ -1,9 +1,8 @@
 import "../styles/globals.css";
-import { AppLayoutProps } from "../src/types/page";
-import { Props } from "../src/types/page";
+import { AppLayoutProps, Props } from "../src/types/page";
 import { RecoilRoot } from "recoil";
 
-function MyApp({ Component, pageProps }: AppLayoutProps) {
+function App({ Component, pageProps }: AppLayoutProps) {
   const Layout = Component.layout || (({ children }: Props) => <>{children}</>);
 
   return (
@@ -15,4 +14,4 @@ function MyApp({ Component, pageProps }: AppLayoutProps) {
   );
 }
 
-export default MyApp;
+export default App;

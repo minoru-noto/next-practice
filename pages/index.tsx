@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import DefaultLayout from "../layouts/default";
-import PageWithLayoutType from "../layouts/index";
+import PageWithLayoutType from "../layouts";
 
 const Page: NextPage = () => {
   return (
     <div>
-      <h1>ようこそ!!</h1>
+      <p className="text-primary text-[22px]">ようこそ!!</p>
     </div>
   );
 };
