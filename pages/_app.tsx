@@ -1,11 +1,16 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import { AppLayoutProps } from "../src/types/page";
+import { Props } from "../src/types/page";
 import { RecoilRoot } from "recoil";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppLayoutProps) {
+  const Layout = Component.layout || (({ children }: Props) => <>{children}</>);
+
   return (
     <RecoilRoot>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </RecoilRoot>
   );
 }

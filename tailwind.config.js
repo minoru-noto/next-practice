@@ -1,9 +1,12 @@
 module.exports = {
   mode: "jit",
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+  purge: [
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.tsx",
+    "./layouts/**/*.tsx",
+    "./public/**.*.html",
   ],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
