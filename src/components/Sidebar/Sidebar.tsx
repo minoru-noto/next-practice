@@ -19,6 +19,7 @@ export const Sidebar: NextPage = () => {
     { name: "ホーム", link: "/home", src: "/Icons/home.svg" },
     { name: "タイムライン", link: "/", src: "/Icons/time.svg" },
     { name: "教材", link: "/learn", src: "/Icons/document.svg" },
+    { name: "記事", link: "/articles", src: "/Icons/articles.svg" },
     { name: "Q&A", link: "/question", src: "/Icons/question.svg" },
   ];
 
@@ -32,7 +33,7 @@ export const Sidebar: NextPage = () => {
 
   return (
     <div
-      className={`max-w-[200px] border-r-2 py-[24px] flex flex-col ${
+      className={`max-w-[200px] border-r-2 py-[24px] flex flex-col mobile:hidden ${
         isOpen ? "w-full" : "w-[80px]"
       }`}
     >

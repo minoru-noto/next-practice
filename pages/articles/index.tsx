@@ -5,7 +5,7 @@ import PageWithLayoutType from "../../layouts";
 const Page: NextPage = () => {
   return (
     <div>
-      <h1>ホーム</h1>
+      <h1>Articles</h1>
     </div>
   );
 };

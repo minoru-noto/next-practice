@@ -5,7 +5,7 @@ import PageWithLayoutType from "../layouts";
 const Page: NextPage = () => {
   return (
     <div>
-      <p className="text-primary text-[22px]">ようこそ!!</p>
+      <p className="text-primary text-[22px]">テスト</p>
     </div>
   );
 };
