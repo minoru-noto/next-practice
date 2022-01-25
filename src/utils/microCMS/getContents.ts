@@ -6,10 +6,13 @@ import {
 } from "microcms-js-sdk";
 
 import { Contents } from "../../types/microCMS/Contents";
+import { Article } from "../../types/microCMS/Article";
 import { apiClient } from "../../utils/microCMS/apiClient";
 
 export const getContents = (queries?: MicroCMSQueries) =>
   apiClient.getList<Contents>({ endpoint: "contents", queries });
+export const getArticles = (queries?: MicroCMSQueries) =>
+  apiClient.getList<Article>({ endpoint: "articles", queries });
 
 export const limit = 10;
 
@@ -33,8 +36,9 @@ export async function getGlobalContents(currentPage = 1, categoryId?: string) {
     categoryId === undefined ? "" : `category[equals]${categoryId}`;
   const offset = (currentPage - 1) * limit;
 
-  const [{ contents, totalCount }] = await Promise.all([
+  const [{ contents, totalCount }, { contents: articles }] = await Promise.all([
     getContents({ limit, filters, offset }),
+    getArticles({ limit, filters, offset }),
   ]);
 
   // const pagerData = [];
@@ -47,11 +51,13 @@ export async function getGlobalContents(currentPage = 1, categoryId?: string) {
     return {
       currentPage,
       contents,
+      articles,
     };
   }
 
   return {
     currentPage,
     contents,
+    articles,
   };
 }

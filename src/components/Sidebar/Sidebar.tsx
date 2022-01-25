@@ -17,7 +17,7 @@ export const Sidebar: NextPage = () => {
 
   const sidebarItems: SidebarItems = [
     { name: "ホーム", link: "/home", src: "/Icons/home.svg" },
-    { name: "タイムライン", link: "/", src: "/Icons/time.svg" },
+    { name: "タイムライン", link: "/timeline", src: "/Icons/time.svg" },
     { name: "教材", link: "/learn", src: "/Icons/document.svg" },
     { name: "記事", link: "/articles", src: "/Icons/articles.svg" },
     { name: "Q&A", link: "/question", src: "/Icons/question.svg" },
@@ -52,7 +52,8 @@ export const Sidebar: NextPage = () => {
             >
               <div
                 className={`w-[3px] h-[25px] ${
-                  currentAsPath === item.link
+                  currentAsPath === item.link ||
+                  currentAsPath.includes(item.link)
                     ? "bg-secondary"
                     : "bg-background2"
                 }`}

@@ -1,15 +1,21 @@
 import type { NextPage } from "next";
-import DefaultLayout from "../layouts/default";
-import PageWithLayoutType from "../layouts";
+import { useRouter } from "next/router";
 
 const Page: NextPage = () => {
+  const router = useRouter();
+
+  const routeToLink = () => {
+    router.push("/home");
+  };
+
   return (
     <div>
-      <p className="text-primary text-[22px]">テスト</p>
+      <p>ようこそ!!</p>
+      <div className="cursor-pointer" onClick={routeToLink}>
+        <p>学習する</p>
+      </div>
     </div>
   );
 };
-
-(Page as PageWithLayoutType).layout = DefaultLayout;
 
 export default Page;

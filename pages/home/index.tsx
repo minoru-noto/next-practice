@@ -4,8 +4,11 @@ import PageWithLayoutType from "../../layouts";
 
 const Page: NextPage = () => {
   return (
-    <div>
-      <h1>ホーム</h1>
+    <div className="w-full px-8 py-8">
+      <div>
+        {/* TODO: 認証関連にするかどうか */}
+        <h1 className="font-semibold">おかえりなさい</h1>
+      </div>
     </div>
   );
 };

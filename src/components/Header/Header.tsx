@@ -12,7 +12,7 @@ export const Header: NextPage = () => {
       case "/home":
         setCurrentPage("ホーム");
         break;
-      case "/":
+      case "/timeline":
         setCurrentPage("タイムライン");
         break;
       case "/learn":
