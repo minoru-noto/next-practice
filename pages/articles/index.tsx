@@ -35,8 +35,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const Page: NextPage<Props> = ({ articles }: Props) => {
-  console.log(articles);
-
   return (
     <div className="w-full px-8 py-8">
       <div className="max-w-[1080px] w-full mx-auto">

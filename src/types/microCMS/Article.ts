@@ -16,6 +16,6 @@ export type Article = {
   };
   body: string;
   category: Category[] & MicroCMSListContent;
-};
+} & MicroCMSListContent;
 
 export type Articles = Article[];

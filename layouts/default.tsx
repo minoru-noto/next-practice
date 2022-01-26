@@ -5,9 +5,9 @@ import { Header } from "../src/components/Header";
 
 const DefaultLayout: NextPage<Props> = ({ children }: Props) => {
   return (
-    <div className="h-screen flex bg-background1">
+    <div className="h-screen flex bg-background2">
       <Sidebar />
-      <div className="w-full">
+      <div className="w-full overflow-hidden">
         <Header />
         {children}
       </div>

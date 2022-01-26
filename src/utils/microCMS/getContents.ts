@@ -13,6 +13,12 @@ export const getContents = (queries?: MicroCMSQueries) =>
   apiClient.getList<Contents>({ endpoint: "contents", queries });
 export const getArticles = (queries?: MicroCMSQueries) =>
   apiClient.getList<Article>({ endpoint: "articles", queries });
+export const getArticle = (queries?: MicroCMSQueries) => (contentId: string) =>
+  apiClient.getListDetail<Article>({
+    endpoint: "articles",
+    contentId,
+    queries,
+  });
 
 export const limit = 10;
 

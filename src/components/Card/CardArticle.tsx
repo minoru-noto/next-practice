@@ -16,7 +16,7 @@ export type Props = {
 };
 
 export const CardArticle: NextPage<Props> = ({ article }: Props) => {
-  const { id, category } = article;
+  const { id, thumbnailUrl, category } = article;
   const title =
     article.title.length > 55
       ? article.title.slice(0, 55) + "..."
@@ -35,15 +35,13 @@ export const CardArticle: NextPage<Props> = ({ article }: Props) => {
     });
   };
 
-  console.log(article);
-
   return (
     <div
       className="flex flex-col w-full cursor-pointer rounded-t-[12px]"
       onClick={routeToLink}
     >
       <Image
-        src="/image/thum01.png"
+        src={thumbnailUrl}
         width={1200}
         height={630}
         className="rounded-t-[12px]"
