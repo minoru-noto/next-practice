@@ -1,6 +1,13 @@
 .article {
   color: #263843;
 
+  a {
+    color: #0033ff;
+    letter-spacing: 0.025em;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+
   & > h2,
   & > h3 {
     font-size: 1.6em;

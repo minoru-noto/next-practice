@@ -57,7 +57,7 @@ const Page: NextPage<Props> = ({ articles, categories }) => {
         <div className="mb-4">
           <h1 className="font-semibold text-[18px]">カテゴリー検索</h1>
         </div>
-        <div className="flex flex-row gap-x-6 flex-wrap">
+        <div className="flex flex-row gap-x-6 gap-y-4 flex-wrap">
           {categories.map((category, index) => {
             return (
               <div
