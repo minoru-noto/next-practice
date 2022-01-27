@@ -1,9 +1,11 @@
 import { NextPage } from "next";
+import DefaultLayout from "layouts/default";
+import PageWithLayoutType from "layouts";
 
-export const Page: NextPage = () => {
-  return (
-    <div>
-      <h1>カテゴリー</h1>
-    </div>
-  );
+const Page: NextPage = () => {
+  return <div>カテゴリーページ</div>;
 };
+
+(Page as PageWithLayoutType).layout = DefaultLayout;
+
+export default Page;

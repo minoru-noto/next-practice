@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const Page: NextPage<Props> = ({ contents }: Props) => {
-  console.log(contents);
+  // console.log(contents);
 
   return <div>...このページは現在作成中です。</div>;
 };
