@@ -2,6 +2,8 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.microcms-assets.io"],
+    loader: "imgix",
+    path: "https://next-practice.imgix.net/",
+    domains: ["next-practice.imgix.net"],
   },
 };

@@ -22,11 +22,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Page: NextPage<Props> = ({ contents }: Props) => {
   console.log(contents);
 
-  return (
-    <div>
-      <h1>LEARN</h1>
-    </div>
-  );
+  return <div>...このページは現在作成中です。</div>;
 };
 
 (Page as PageWithLayoutType).layout = DefaultLayout;

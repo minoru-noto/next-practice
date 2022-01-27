@@ -7,7 +7,7 @@ export type Props = {
 
 export const CardSlugArticle: NextPage<Props> = ({ body }: Props) => {
   return (
-    <div>
+    <div className="bg-background1 rounded-md px-4 py-4">
       <div
         className={styles.article}
         dangerouslySetInnerHTML={{

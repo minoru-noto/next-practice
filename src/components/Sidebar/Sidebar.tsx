@@ -16,12 +16,36 @@ export const Sidebar: NextPage = () => {
   const currentAsPath = router.asPath;
 
   const sidebarItems: SidebarItems = [
-    { name: "ホーム", link: "/home", src: "/Icons/home.svg" },
-    { name: "タイムライン", link: "/timeline", src: "/Icons/time.svg" },
-    { name: "教材", link: "/learn", src: "/Icons/document.svg" },
-    { name: "記事", link: "/articles", src: "/Icons/articles.svg" },
-    { name: "Q&A", link: "/question", src: "/Icons/question.svg" },
+    {
+      name: "ホーム",
+      link: "/home",
+      src: "https://next-practice.imgix.net/icons/home.svg",
+    },
+    {
+      name: "タイムライン",
+      link: "/timeline",
+      src: "https://next-practice.imgix.net/icons/time.svg",
+    },
+    {
+      name: "教材",
+      link: "/learn",
+      src: "https://next-practice.imgix.net/icons/document.svg",
+    },
+    {
+      name: "記事",
+      link: "/articles",
+      src: "https://next-practice.imgix.net/icons/articles.svg",
+    },
+    {
+      name: "Q&A",
+      link: "/question",
+      src: "https://next-practice.imgix.net/icons/question.svg",
+    },
   ];
+
+  const replaceUrl = (src: string) => {
+    return src.replace("https://next-practice.imgix.net/", "");
+  };
 
   const routeToLink = (link: string) => {
     router.push(link);
@@ -58,7 +82,12 @@ export const Sidebar: NextPage = () => {
                     : "bg-background2"
                 }`}
               ></div>
-              <Image src={item.src} width={18} height={18} alt="アイコン画像" />
+              <Image
+                src={replaceUrl(item.src)}
+                width={18}
+                height={18}
+                alt="アイコン画像"
+              />
               {isOpen && (
                 <p className="font-semibold text-[16px]">{item.name}</p>
               )}

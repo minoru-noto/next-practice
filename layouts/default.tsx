@@ -7,7 +7,7 @@ const DefaultLayout: NextPage<Props> = ({ children }: Props) => {
   return (
     <div className="h-screen flex bg-background2">
       <Sidebar />
-      <div className="w-full overflow-hidden">
+      <div className="w-full flex flex-1 flex-col overflow-hidden">
         <Header />
         {children}
       </div>

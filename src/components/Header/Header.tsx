@@ -6,9 +6,10 @@ export const Header: NextPage = () => {
   const [currentPage, setCurrentPage] = useState<string>("");
   const router = useRouter();
   const currentAsPath = router.asPath;
+  const currentPathname = router.pathname;
 
   const currentPageName = () => {
-    switch (currentAsPath) {
+    switch (currentPathname) {
       case "/home":
         setCurrentPage("ホーム");
         break;
@@ -19,6 +20,7 @@ export const Header: NextPage = () => {
         setCurrentPage("教材");
         break;
       case "/articles":
+      case "/articles/[slug]":
         setCurrentPage("記事");
         break;
       case "/question":
@@ -31,7 +33,7 @@ export const Header: NextPage = () => {
 
   useEffect(() => {
     currentPageName();
-  }, [currentAsPath]);
+  }, [currentPathname]);
 
   return (
     <div className="w-full h-[65px] border-b-2">

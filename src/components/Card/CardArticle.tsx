@@ -40,10 +40,11 @@ export const CardArticle: NextPage<Props> = ({ article }: Props) => {
       className="flex flex-col w-full cursor-pointer rounded-t-[12px]"
       onClick={routeToLink}
     >
-      <Image
+      <img
         src={thumbnailUrl}
         width={1200}
         height={630}
+        alt="サムネイル画像"
         className="rounded-t-[12px]"
       />
       <div className="w-full flex flex-col bg-background1 shadow-md p-4 rounded-b-[12px]">
