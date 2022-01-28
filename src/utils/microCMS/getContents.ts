@@ -43,6 +43,8 @@ export const limit = 10;
 export async function getGlobalContents(currentPage = 1, categoryId?: string) {
   const filters =
     categoryId === undefined ? "" : `category[equals]${categoryId}`;
+  const articlesFilters =
+    categoryId === undefined ? "" : `category[contains]${categoryId}`;
   const offset = (currentPage - 1) * limit;
 
   const [
@@ -50,8 +52,8 @@ export async function getGlobalContents(currentPage = 1, categoryId?: string) {
     { contents: articles },
     { contents: categories },
   ] = await Promise.all([
-    getContents({ limit, filters, offset }),
-    getArticles({ limit, filters, offset }),
+    getContents({ limit, filters, offset }), // 教材コンテンツ
+    getArticles({ limit, filters: articlesFilters, offset }), // 記事コンテンツ
     getCategories({ limit: 100, fields: "id,name" }),
   ]);
 

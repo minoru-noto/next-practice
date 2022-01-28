@@ -4,6 +4,7 @@ import Head from "next/head";
 import {
   DESCRIPTION,
   OG_DESCRIPTION,
+  KEYWORDS,
   OG_IMAGE,
   OG_TITLE,
   returnTitle,
@@ -80,6 +81,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 const Page: NextPage<Props> = ({ article, toc }) => {
   const headTitle = returnTitle(article.title);
   const headDescription = article.description;
+  const headKeywords = article.keywords;
 
   const { title, thumbnail, body, category } = article;
   const date = new Date(article.publishedAt);
@@ -96,6 +98,7 @@ const Page: NextPage<Props> = ({ article, toc }) => {
       <Head>
         <title>{headTitle}</title>
         <meta key={OG_TITLE} property={OG_TITLE} content={headTitle} />
+        <meta key={KEYWORDS} name={KEYWORDS} content={headKeywords} />
         <meta key={DESCRIPTION} name={DESCRIPTION} content={headDescription} />
         <meta
           key={OG_DESCRIPTION}

@@ -21,6 +21,7 @@ export const Header: NextPage = () => {
         break;
       case "/articles":
       case "/articles/[slug]":
+      case "/articles/category/[category]":
         setCurrentPage("記事");
         break;
       case "/question":

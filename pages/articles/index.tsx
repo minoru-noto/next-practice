@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import DefaultLayout from "../../layouts/default";
 import PageWithLayoutType from "../../layouts";
 
@@ -38,9 +39,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const Page: NextPage<Props> = ({ articles, categories }) => {
+  const router = useRouter();
+
   // カテゴリー検索遷移
   const routeToLink = (id: string) => {
-    console.log(id);
+    router.push({
+      pathname: `/articles/category/[category]`,
+      query: { category: id },
+    });
   };
 
   return (
