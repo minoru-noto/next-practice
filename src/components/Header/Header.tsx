@@ -1,8 +1,13 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-export const Header: NextPage = () => {
+type Props = {
+  openHamburgerMenu: () => void;
+};
+
+export const Header: NextPage<Props> = ({ openHamburgerMenu }) => {
   const [currentPage, setCurrentPage] = useState<string>("");
   const router = useRouter();
   const currentAsPath = router.asPath;
@@ -32,17 +37,31 @@ export const Header: NextPage = () => {
     }
   };
 
+  const replaceUrl = (src: string) => {
+    return src.replace("https://next-practice.imgix.net/", "");
+  };
+
   useEffect(() => {
     currentPageName();
   }, [currentPathname]);
 
   return (
     <div className="w-full h-[65px] border-b-2">
-      <div className="flex flex-row justify-between items-center">
-        <div className="py-4 px-8">
+      <div className="flex flex-row justify-between items-center px-8">
+        <div className="py-4">
           <h1 className="font-bold text-[22px]">{currentPage}</h1>
         </div>
-        <div></div>
+        <div
+          className="pc:hidden tablet:hidden cursor-pointer"
+          onClick={openHamburgerMenu}
+        >
+          <Image
+            src={replaceUrl("icons/menu.svg")}
+            width={28}
+            height={28}
+            alt="アイコン画像"
+          />
+        </div>
       </div>
     </div>
   );

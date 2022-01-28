@@ -2,7 +2,11 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+
+type Props = {
+  isOpen: boolean;
+  routeToLink: (link: string) => void;
+};
 
 type SidebarItems = {
   name: string;
@@ -10,11 +14,12 @@ type SidebarItems = {
   src: string;
 }[];
 
-export const Sidebar: NextPage = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-
+export const MobileSidebar: NextPage<Props> = ({ isOpen, routeToLink }) => {
   const router = useRouter();
   const currentAsPath = router.asPath;
+  const isOpenStyle = isOpen
+    ? "translate-x-0 ease-out"
+    : "-translate-x-full ease-in";
 
   const sidebarItems: SidebarItems = [
     {
@@ -48,19 +53,9 @@ export const Sidebar: NextPage = () => {
     return src.replace("https://next-practice.imgix.net/", "");
   };
 
-  const routeToLink = (link: string) => {
-    router.push(link);
-  };
-
-  const isToggleFun = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div
-      className={`max-w-[200px] border-r-2 py-[24px] flex flex-col mobile:hidden ${
-        isOpen ? "w-full" : "w-[80px]"
-      }`}
+      className={`max-w-[250px] h-full border-r-2 py-[24px] w-full flex flex-col fixed left-0 z-10 pc:hidden tablet:hidden bg-background1 transform transition duration-300 ${isOpenStyle}`}
     >
       <div className="px-6">
         <Link href="/home">
@@ -89,7 +84,7 @@ export const Sidebar: NextPage = () => {
               key={index}
               className={`px-[24px] py-[12px] hover:text-secondary cursor-pointer flex flex-row gap-x-4 items-center ${
                 currentAsPath === item.link && "text-secondary"
-              } ${isOpen ? "px-[24px]" : "px-[12px]"}`}
+              }`}
               onClick={() => routeToLink(item.link)}
             >
               <div
@@ -106,24 +101,13 @@ export const Sidebar: NextPage = () => {
                 height={18}
                 alt="アイコン画像"
               />
-              {isOpen && (
-                <p className="font-semibold text-[16px]">{item.name}</p>
-              )}
+              <p className="font-semibold text-[16px]">{item.name}</p>
             </div>
           );
         })}
       </div>
       {/* 区切り線 */}
       <div className="w-[80%] h-[2px] bg-gray3 mx-auto"></div>
-      {/* 開閉ボタン */}
-      <div className="flex justify-end mt-auto px-6">
-        <div onClick={isToggleFun}>
-          {isOpen && <p className="text-[18px] font-bold cursor-pointer">＜</p>}
-          {!isOpen && (
-            <p className="text-[18px] font-bold cursor-pointer">＞</p>
-          )}
-        </div>
-      </div>
     </div>
   );
 };
