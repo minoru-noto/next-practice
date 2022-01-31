@@ -3,46 +3,13 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-
-type SidebarItems = {
-  name: string;
-  link: string;
-  src: string;
-}[];
+import { sidebarItems, sidebarInfoItems } from "./index";
 
 export const Sidebar: NextPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const router = useRouter();
   const currentAsPath = router.asPath;
-
-  const sidebarItems: SidebarItems = [
-    {
-      name: "ホーム",
-      link: "/home",
-      src: "https://next-practice.imgix.net/icons/home.svg",
-    },
-    {
-      name: "タイムライン",
-      link: "/timeline",
-      src: "https://next-practice.imgix.net/icons/time.svg",
-    },
-    {
-      name: "教材",
-      link: "/learn",
-      src: "https://next-practice.imgix.net/icons/document.svg",
-    },
-    {
-      name: "記事",
-      link: "/articles",
-      src: "https://next-practice.imgix.net/icons/articles.svg",
-    },
-    {
-      name: "Q&A",
-      link: "/question",
-      src: "https://next-practice.imgix.net/icons/question.svg",
-    },
-  ];
 
   const replaceUrl = (src: string) => {
     return src.replace("https://next-practice.imgix.net/", "");
@@ -72,9 +39,9 @@ export const Sidebar: NextPage = () => {
                 height={20}
                 alt="アイコン画像"
               />
-              <span className="ml-2">Learning</span>
+              <span className={`ml-2 ${!isOpen && "hidden"}`}>Learning</span>
               <br />
-              <span className="ml-20">Code</span>
+              <span className={`ml-20 ${!isOpen && "hidden"}`}>Code</span>
             </h1>
           </a>
         </Link>
@@ -110,6 +77,22 @@ export const Sidebar: NextPage = () => {
                 <p className="font-semibold text-[16px]">{item.name}</p>
               )}
             </div>
+          );
+        })}
+      </div>
+      {/* 区切り線 */}
+      <div className="w-[80%] h-[2px] bg-gray3 mx-auto"></div>
+      {/* 各種情報 */}
+      <div className="my-8 flex flex-col gap-y-2">
+        {sidebarInfoItems.map((item, index) => {
+          return (
+            <Link href={item.link} key={index}>
+              <a>
+                <div className="mx-8 hover:text-gray4">
+                  <p className="text-[13px] text-gray1">{item.name}</p>
+                </div>
+              </a>
+            </Link>
           );
         })}
       </div>

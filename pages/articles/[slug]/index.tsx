@@ -112,9 +112,9 @@ const Page: NextPage<Props> = ({ article, toc }) => {
         />
       </Head>
       <div className="w-full px-8 mobile:px-2 pt-12 mb-12 mt-12 h-full overflow-scroll">
-        <div className="max-w-[1080px] w-full mx-auto">
+        <div className="max-w-[1280px] w-full mx-auto">
           {/* 大見出し */}
-          <div className="max-w-[750px] w-full mb-12 px-2">
+          <div className="max-w-[800px] w-full mb-12 px-2">
             <div className="mb-4">
               <h1 className="font-bold text-[24px]">{title}</h1>
             </div>
@@ -178,7 +178,7 @@ const Page: NextPage<Props> = ({ article, toc }) => {
           </div>
           <div className="flex gap-x-4">
             {/* メインコンテンツ */}
-            <div className="max-w-[750px] w-full">
+            <div className="max-w-[800px] w-full">
               <CardSlugArticle body={body} />
             </div>
             {/* 目次(pc対応) */}

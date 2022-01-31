@@ -27,11 +27,11 @@ export const MobileSidebar: NextPage<Props> = ({ isOpen, routeToLink }) => {
       link: "/home",
       src: "https://next-practice.imgix.net/icons/home.svg",
     },
-    {
-      name: "タイムライン",
-      link: "/timeline",
-      src: "https://next-practice.imgix.net/icons/time.svg",
-    },
+    // {
+    //   name: "タイムライン",
+    //   link: "/timeline",
+    //   src: "https://next-practice.imgix.net/icons/time.svg",
+    // },
     {
       name: "教材",
       link: "/learn",
