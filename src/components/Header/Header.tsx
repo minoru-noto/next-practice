@@ -32,6 +32,18 @@ export const Header: NextPage<Props> = ({ openHamburgerMenu }) => {
       case "/question":
         setCurrentPage("Q&A");
         break;
+      case "/toc":
+        setCurrentPage("利用規約");
+        break;
+      case "/contact":
+        setCurrentPage("お問い合わせ");
+        break;
+      case "/privacy":
+        setCurrentPage("プライバシーポリシー");
+        break;
+      case "/ebizrule":
+        setCurrentPage("特定商取引に基づく表示");
+        break;
       default:
         setCurrentPage("");
     }

@@ -83,19 +83,21 @@ export const Sidebar: NextPage = () => {
       {/* 区切り線 */}
       <div className="w-[80%] h-[2px] bg-gray3 mx-auto"></div>
       {/* 各種情報 */}
-      <div className="my-8 flex flex-col gap-y-2">
-        {sidebarInfoItems.map((item, index) => {
-          return (
-            <Link href={item.link} key={index}>
-              <a>
-                <div className="mx-8 hover:text-gray4">
-                  <p className="text-[13px] text-gray1">{item.name}</p>
-                </div>
-              </a>
-            </Link>
-          );
-        })}
-      </div>
+      {isOpen && (
+        <div className="my-8 flex flex-col gap-y-2">
+          {sidebarInfoItems.map((item, index) => {
+            return (
+              <Link href={item.link} key={index}>
+                <a>
+                  <div className="mx-8 hover:text-gray4">
+                    <p className="text-[13px] text-gray1">{item.name}</p>
+                  </div>
+                </a>
+              </Link>
+            );
+          })}
+        </div>
+      )}
       {/* 区切り線 */}
       <div className="w-[80%] h-[2px] bg-gray3 mx-auto"></div>
       {/* 開閉ボタン */}

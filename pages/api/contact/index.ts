@@ -2,30 +2,38 @@ import type { NextApiRequest as Req, NextApiResponse as Res } from "next";
 import { createTransport, Transporter } from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
+type ReqType = {
+  email: string;
+  message: string;
+};
+
 export default async function handler(req: Req, res: Res) {
   try {
     // "POST"以外は、"404 Not Found"を返す
     if (req.method !== "POST") return res.status(404).send("Not Found");
 
+    const reqBody = JSON.parse(req.body) as ReqType;
+    const { email, message } = reqBody;
+
     const transporter: Transporter = createTransport({
+      service: "gmail",
       port: 465,
       secure: true,
       auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    // const options = {
-    //   from: `${req.body.email}`,
-    //   to: process.env.MAIL_TO,
-    //   text: `${req.body.message}`,
-    // };
     const options = {
-      from: "test@gmail.com",
-      to: process.env.MAIL_TO,
+      from: `${email}`,
+      to: process.env.EMAIL_TO,
       subject: "お問い合わせ",
-      text: "送信テスト",
+      html: `
+      <p style="font-weight:bold;">・送信元: ${email}</p>
+      <p>< お問い合わせ内容 ></p>
+      <p>${message}</p>
+      `,
     };
 
     const result: SMTPTransport.SentMessageInfo = await transporter.sendMail(
