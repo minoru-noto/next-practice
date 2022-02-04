@@ -25,7 +25,7 @@ const Page: NextPage = () => {
   };
 
   return (
-    <div className="w-full px-8 py-8">
+    <div className="w-full px-8 py-16 h-full overflow-scroll">
       <div className="text-center mb-12">
         <h1 className="font-bold text-[22px]">お問い合わせ</h1>
       </div>

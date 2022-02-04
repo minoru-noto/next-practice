@@ -64,7 +64,7 @@ export const Header: NextPage<Props> = ({ openHamburgerMenu }) => {
           <h1 className="font-bold text-[22px]">{currentPage}</h1>
         </div>
         <div
-          className="pc:hidden tablet:hidden cursor-pointer"
+          className="pc:hidden tablet:hidden landscape:hidden cursor-pointer"
           onClick={openHamburgerMenu}
         >
           <Image
