@@ -91,7 +91,7 @@ const Page: NextPage = () => {
           <div className="w-full">
             <a
               href="https://px.a8.net/svt/ejp?a8mat=3H5CY3+8C40Q+3L4M+669JL"
-              rel="nofollow"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <img
@@ -111,7 +111,7 @@ const Page: NextPage = () => {
           <div className="w-full">
             <a
               href="https://px.a8.net/svt/ejp?a8mat=3H5C5U+8G8JOA+3GWO+60H7L"
-              rel="nofollow"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <img
