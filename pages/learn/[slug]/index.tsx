@@ -1,5 +1,14 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import Link from "next/link";
+import Head from "next/head";
+import {
+  DESCRIPTION,
+  OG_DESCRIPTION,
+  KEYWORDS,
+  OG_IMAGE,
+  OG_TITLE,
+  returnTitle,
+} from "src/utils/meta";
 import DefaultLayout from "layouts/default";
 import PageWithLayoutType from "layouts";
 import { Contents } from "src/types/microCMS/Contents";
@@ -67,24 +76,41 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 };
 
 const Page: NextPage<Props> = ({ contents, toc }) => {
-  console.log(contents);
-  const { title, sectionTitle, body } = contents;
+  const { title, sectionTitle, description, body, keywords } = contents;
+
+  const headTitle = returnTitle(title);
+  const headDescription = description;
+  const headKeywords = keywords;
 
   return (
-    <div className="w-full max-w-[1080px] mx-auto py-[24px] h-full overflow-scroll">
-      {/* リンク遷移 */}
-      <div className="flex flex-row items-center gap-x-2 mb-12">
-        <Link href="/learn">
-          <a className="text-primary text-[14px]">{sectionTitle}</a>
-        </Link>
-        <span> {">"}</span>
-        <p className="text-[14px]">{title}</p>
+    <>
+      <Head>
+        <title>{headTitle}</title>
+        <meta key={OG_TITLE} property={OG_TITLE} content={headTitle} />
+        <meta key={KEYWORDS} name={KEYWORDS} content={headKeywords} />
+        <meta key={DESCRIPTION} name={DESCRIPTION} content={headDescription} />
+        <meta
+          key={OG_DESCRIPTION}
+          property={OG_DESCRIPTION}
+          content={headDescription}
+        />
+      </Head>
+
+      <div className="w-full max-w-[1080px] px-[12px] mx-auto py-[24px] h-full overflow-scroll">
+        {/* リンク遷移 */}
+        <div className="flex flex-row items-center gap-x-2 mb-12">
+          <Link href="/learn">
+            <a className="text-primary text-[14px]">{sectionTitle}</a>
+          </Link>
+          <span> {">"}</span>
+          <p className="text-[14px]">{title}</p>
+        </div>
+        {/* メインコンテンツ */}
+        <div className="max-w-[800px] w-full">
+          <CardSlugContent body={body} />
+        </div>
       </div>
-      {/* メインコンテンツ */}
-      <div className="max-w-[800px] w-full">
-        <CardSlugContent body={body} />
-      </div>
-    </div>
+    </>
   );
 };
 
