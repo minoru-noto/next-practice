@@ -8,6 +8,7 @@ import { Category } from "./Category";
 
 export type Contents = {
   title: string;
+  sectionTitle: string;
   description: string;
   body: string;
   category: Category & MicroCMSListContent;

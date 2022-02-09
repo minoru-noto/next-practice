@@ -197,8 +197,8 @@ const Page: NextPage<Props> = ({ article, toc }) => {
                         <p
                           className={`${
                             t.name === "h2"
-                              ? "font-semibold text-[16px]"
-                              : "text-[14px] pl-2"
+                              ? "font-semibold text-[14px]"
+                              : "text-[12px] pl-2"
                           }`}
                         >
                           {t.name === "h2" ? "・" + t.text : t.text}

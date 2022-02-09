@@ -11,7 +11,7 @@ if (process.env.NEXT_PUBLIC_SITE_URL === undefined) {
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
-const title = "プログラミング学習サイト";
+export const title = "プログラミング学習サイト";
 export const description =
   "プログラミングに関する記事&プログラミングを学べる学習サイト!!!";
 

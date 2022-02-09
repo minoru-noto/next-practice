@@ -22,6 +22,7 @@ export const Header: NextPage<Props> = ({ openHamburgerMenu }) => {
         setCurrentPage("タイムライン");
         break;
       case "/learn":
+      case "/learn/[slug]":
         setCurrentPage("教材");
         break;
       case "/articles":

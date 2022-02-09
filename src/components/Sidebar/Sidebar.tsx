@@ -55,7 +55,9 @@ export const Sidebar: NextPage = () => {
             <div
               key={index}
               className={`px-[24px] py-[12px] hover:text-secondary cursor-pointer flex flex-row gap-x-4 items-center ${
-                currentAsPath === item.link && "text-secondary"
+                (currentAsPath === item.link ||
+                  currentAsPath.includes(item.link)) &&
+                "text-secondary"
               } ${isOpen ? "px-[24px]" : "px-[12px]"}`}
               onClick={() => routeToLink(item.link)}
             >

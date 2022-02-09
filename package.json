@@ -12,6 +12,7 @@
     "firebase": "^9.6.3",
     "firebase-admin": "^10.0.1",
     "highlight.js": "^11.4.0",
+    "just-clone": "^5.0.1",
     "microcms-js-sdk": "^2.0.0",
     "microcms-richedit-processer": "^1.0.4",
     "next": "12.0.8",
